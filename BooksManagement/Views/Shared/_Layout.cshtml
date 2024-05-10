@@ -29,6 +29,9 @@
                         <li class="nav-item">
                         <a class="nav-link " asp-area="" asp-controller="Category" asp-action="Index">Categories</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Book" asp-action="Index">Books</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -48,6 +51,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.tiny.cloud/1/4ettrtfeme4fsxirfbzdm1myd6o1dk2sjmg7keg01sxogvtk/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
