@@ -1,9 +1,11 @@
 ﻿using BooksManagement.Data;
 using BooksManagement.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BooksManagement.Controllers
 {
+    [Authorize(Roles.RolesAvailable.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly ApplicationDBContext _dbContext;

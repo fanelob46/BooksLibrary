@@ -1,6 +1,7 @@
 ﻿using BooksManagement.Data;
 using BooksManagement.Models;
 using BooksManagement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using System.Collections.Generic;
 
 namespace BooksManagement.Controllers
 {
+    [Authorize(Roles.RolesAvailable.Role_Admin)]
     public class BookController : Controller
     {
         private readonly ApplicationDBContext _dbContext;
