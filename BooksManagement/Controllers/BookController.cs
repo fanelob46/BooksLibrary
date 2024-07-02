@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace BooksManagement.Controllers
 {
-    [Authorize(Roles.RolesAvailable.Role_Admin)]
+   // [Authorize(Roles.RolesAvailable.Role_Admin)]
     public class BookController : Controller
     {
         private readonly ApplicationDBContext _dbContext;

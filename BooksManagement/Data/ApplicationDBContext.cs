@@ -13,6 +13,7 @@ namespace BooksManagement.Data
         }
       public DbSet<Category> Categories { get; set; }
       public DbSet<Book> Books { get; set; }
+        public DbSet<ShoppingCartItems> Items { get; set; }
         public DbSet<ApplicationUser> Users { get; set; }
      
     }
