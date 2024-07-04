@@ -7,6 +7,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>LendingPrice</th>
             <th>Quantity</th>
             <th>SubTotal</th>
             <th></th>
@@ -19,6 +20,7 @@
                 <td>@item.Book.Title</td>
                 <td>@item.Book.Description</td>
                 <td>@item.Book.Price</td>
+                <td>@item.Book.LendingPrice</td>
                 <td>@item.Quantity</td>
                 <td>@(item.Book.Price * item.Quantity)</td>
                 <input type="hidden" value="@item.Book.BookId"/>
@@ -32,8 +34,16 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
             <td>Total:</td>
             <td>@Model.TotalPrice</td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>
+<div class="float-end"> 
+    <a class="btn btn-success" asp-controller="ShoppingCart" asp-action="CheckOutPrice">Buy</a>
+    <a class="btn btn-success" asp-controller="ShoppingCart" asp-action="CheckOutLendPrice">Rent</a>
+</div>
+

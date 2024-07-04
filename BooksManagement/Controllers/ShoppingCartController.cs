@@ -86,5 +86,47 @@ namespace BooksManagement.Controllers
 
             return RedirectToAction("ViewCart");
         }
+
+        public IActionResult CheckOutPrice()
+        {
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItems>>("Cart") ?? new List<ShoppingCartItems>();
+            
+            foreach(var item in cartItems)
+            {
+                _dbContext.Purchases.Add(new Purchase
+                {
+                    BookId = item.Book.BookId,
+                    Quantinty = item.Quantity,
+                    PurchaseDate = DateTime.Now,
+                    Total = (decimal?)(item.Book.Price * item.Quantity)
+                }
+                    );
+                
+            }
+            _dbContext.SaveChanges();
+            HttpContext.Session.Set("Cart", new List<ShoppingCartItems>());
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult CheckOutLendPrice()
+        {
+            var cartItems = HttpContext.Session.Get<List<ShoppingCartItems>>("Cart") ?? new List<ShoppingCartItems>();
+
+            foreach (var item in cartItems)
+            {
+                _dbContext.Purchases.Add(new Purchase
+                {
+                    BookId = item.Book.BookId,
+                    Quantinty = item.Quantity,
+                    PurchaseDate = DateTime.Now,
+                    Total = (decimal?)(item.Book.LendingPrice * item.Quantity)
+                }
+                    );
+
+            }
+            _dbContext.SaveChanges();
+            HttpContext.Session.Set("Cart", new List<ShoppingCartItems>());
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
